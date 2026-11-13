@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#e9dfca">
+<title>TENSHIWORLD — Minecraft PvP Tiers</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap');
+:root{--paper:#e9dfca;--ink:#171719;--muted:#71695e;--line:#b9ad98;--gold:#8d6b3d;--cream:#f3ead8}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,Arial,sans-serif;background-image:radial-gradient(#6d59401a .7px,transparent .7px),radial-gradient(#fff8e9aa .8px,transparent .8px);background-size:5px 5px,9px 9px}
+a{color:inherit;text-decoration:none}.wrap{width:min(1160px,calc(100% - 38px));margin:auto}
+header{border-bottom:1px solid #17171930;background:#e9dfcaeF;position:sticky;top:0;z-index:10;backdrop-filter:blur(10px)}
+.nav{height:70px;display:flex;align-items:center;justify-content:space-between}.logo{font:700 25px 'Oswald';letter-spacing:3px}.logo span{font-family:'Cormorant Garamond';font-style:italic;font-weight:500;letter-spacing:1px}.links{display:flex;gap:27px;font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase}.links a{border-bottom:1px solid transparent;padding:8px 0}.links a:hover{border-color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--ink);color:var(--paper);padding:13px 18px;border:1px solid var(--ink);font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:.2s}.btn:hover{background:transparent;color:var(--ink)}
+.hero{position:relative;min-height:660px;overflow:hidden;border-bottom:1px solid var(--ink);display:flex;align-items:center}
+.hero:before{content:"TENSHIWORLD";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font:700 clamp(90px,18vw,240px)/.8 'Oswald';letter-spacing:-7px;white-space:nowrap;color:#171719;opacity:.07}
+.hero:after{content:"✦";position:absolute;top:8%;left:50%;font-size:42px}
+.hero-inner{position:relative;z-index:1;width:100%;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:28px;padding:65px 0}
+.kicker{font-size:10px;letter-spacing:5px;font-weight:800;text-transform:uppercase;color:var(--gold)}
+.hero h1{font:700 clamp(68px,11vw,140px)/.78 'Oswald';letter-spacing:-3px;margin:24px 0 20px;text-transform:uppercase}
+.hero h1 em{display:block;font:italic 500 clamp(42px,7vw,86px)/1 'Cormorant Garamond';letter-spacing:0;text-transform:none;margin-left:8px}
+.hero p{max-width:480px;color:#514b43;font-size:13px;line-height:1.9}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}.btn.light{background:transparent;color:var(--ink)}
+.art{min-height:440px;position:relative;display:flex;align-items:center;justify-content:center}
+.art-frame{width:min(100%,420px);aspect-ratio:4/5;border:1px solid #17171965;position:relative;overflow:hidden;background:linear-gradient(155deg,#c5b49a,#e9dfca 42%,#8c7962);box-shadow:14px 16px 0 #17171912}
+.art-frame:before{content:"";position:absolute;inset:12px;border:1px solid #17171970;z-index:2;pointer-events:none}
+.art-frame:after{content:"✦";position:absolute;top:18px;left:50%;transform:translateX(-50%);font-size:28px;z-index:3}
+.statue{position:absolute;left:50%;top:51%;transform:translate(-50%,-50%);font-size:clamp(150px,25vw,260px);filter:grayscale(1) sepia(.35);text-shadow:8px 10px 0 #3b302533}
+.wing{position:absolute;top:22%;font:100px 'Cormorant Garamond';color:#604b35;opacity:.75}.wing.left{left:4%;transform:rotate(-28deg)}.wing.right{right:4%;transform:rotate(28deg) scaleX(-1)}
+.art-caption{position:absolute;bottom:23px;left:25px;right:25px;z-index:3;display:flex;justify-content:space-between;align-items:end;font:italic 24px 'Cormorant Garamond'}
+.art-caption small{font:9px Inter;letter-spacing:2px;font-style:normal}
+.section{padding:75px 0}.section-top{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:25px;border-bottom:1px solid var(--line);padding-bottom:18px}
+.eyebrow{font-size:10px;letter-spacing:4px;font-weight:800;color:var(--gold);text-transform:uppercase}
+h2{font:700 clamp(38px,6vw,66px)/.95 'Oswald';letter-spacing:-1px;margin:10px 0 0;text-transform:uppercase}
+.intro{max-width:460px;color:#665e52;font-size:12px;line-height:1.8}
+.tabs{display:flex;gap:7px;flex-wrap:wrap;margin:22px 0}.tab{padding:10px 16px;background:transparent;border:1px solid #8e8372;color:var(--ink);font-size:10px;font-weight:800;letter-spacing:1.5px;cursor:pointer}.tab.active,.tab:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.toolbar{display:flex;gap:12px;align-items:center;justify-content:space-between;margin:16px 0}.search{flex:1;min-width:180px;padding:13px 14px;background:#f2e9d9;border:1px solid var(--line);color:var(--ink);outline:none}.search:focus{border-color:var(--ink)}.count{font-size:10px;letter-spacing:2px;font-weight:800}
+.table{border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}.thead,.tier-row{display:grid;grid-template-columns:90px 1fr 150px 120px;gap:12px;align-items:center;padding:13px 16px}.thead{font-size:9px;letter-spacing:2px;font-weight:800;border-bottom:1px solid var(--line)}.tier-row{min-height:72px;border-bottom:1px solid #b9ad9877}.tier-row:last-child{border:0}.tier-row:hover{background:#fff8e855}
+.tier{height:43px;display:grid;place-items:center;font:700 22px 'Oswald';color:#171719;border:1px solid #17171950}.t1{background:#d5b76e}.t2{background:#c7c3b7}.t3{background:#b9865b}.t4{background:#a9a18f}.t5{background:#777064;color:#fff}
+.player{display:flex;align-items:center;gap:12px}.avatar{width:37px;height:37px;display:grid;place-items:center;background:#242326;color:var(--paper);font:20px 'Cormorant Garamond';border-radius:50%}.pname{font-weight:800;font-size:13px;letter-spacing:.3px}.sub{font-size:9px;color:#766e62;margin-top:4px;letter-spacing:1px}.mode{font-size:10px;font-weight:800;letter-spacing:1px}.points{font:600 23px 'Cormorant Garamond';}
+.empty{display:none;padding:30px;text-align:center;color:var(--muted)}.note{font-size:10px;color:#766e62;line-height:1.8;margin-top:13px}
+.tiers{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin-top:22px}.tier-card{padding:17px 12px;border:1px solid var(--line);text-align:center;background:#f0e7d7}.tier-card strong{display:block;font:700 27px 'Oswald'}.tier-card span{font-size:9px;letter-spacing:1.5px;color:#71695e}
+.submit{margin-top:48px;padding:28px;border:1px solid var(--ink);display:flex;justify-content:space-between;align-items:center;gap:20px}.submit h3{font:700 30px 'Oswald';margin:0 0 5px}.submit p{font-size:11px;color:#71695e;margin:0;line-height:1.7}
+footer{padding:25px 0;border-top:1px solid var(--line);font-size:9px;letter-spacing:1px;color:#756d61}.foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media(max-width:760px){.links{display:none}.hero-inner{grid-template-columns:1fr;padding:55px 0 35px}.hero{min-height:auto}.hero h1{font-size:82px}.art{min-height:350px}.art-frame{width:min(78%,360px)}.section-top{display:block}.intro{margin-top:14px}.tiers{grid-template-columns:repeat(3,1fr)}.thead,.tier-row{grid-template-columns:58px 1fr 75px;gap:8px;padding:11px 8px}.thead span:last-child,.tier-row .points{display:none}.tier{height:38px}.mode{font-size:9px}.submit{align-items:flex-start;flex-direction:column}}
+</style></head>
+<body>
+<header><div class="wrap nav"><a class="logo" href="#">TENSHI<span>WORLD</span></a><nav class="links"><a href="#rankings">Rankings</a><a href="#tiers">Tier system</a><a href="#submit">Submit player</a></nav><a class="btn" href="#rankings">Explore tiers</a></div></header>
+<section class="hero"><div class="wrap hero-inner"><div><div class="kicker">A Minecraft PvP community archive</div><h1>TENSHI<em>world</em></h1><p>Ойыншылардың шеберлігі, PvP режимдері және қауымдастық рейтингі. Өз режиміңді таңда да, үздіктер тізімін зертте.</p><div class="hero-actions"><a class="btn" href="#rankings">View rankings</a><a class="btn light" href="#tiers">Tier system</a></div></div><div class="art"><div class="art-frame"><div class="wing left">翼</div><div class="wing right">翼</div><div class="statue">♙</div><div class="art-caption"><span>Tenshi Archive</span><small>EST. 2026 · PVP</small></div></div></div></div></section>
+<main><section class="section" id="rankings"><div class="wrap"><div class="section-top"><div><div class="eyebrow">The leaderboard</div><h2>Player rankings</h2></div><p class="intro">TENSHIWORLD қауымдастығының PvP ойыншылары. Режим бойынша сүзгілеп, ойыншыны атымен ізде.</p></div>
+<div class="tabs" id="tabs"><button class="tab active" data-mode="Overall">OVERALL</button><button class="tab" data-mode="Sword">SWORD</button><button class="tab" data-mode="Crystal">CRYSTAL</button><button class="tab" data-mode="UHC">UHC</button><button class="tab" data-mode="Axe">AXE</button></div>
+<div class="toolbar"><input class="search" id="search" placeholder="Search player..."><div class="count" id="count">10 PLAYERS</div></div>
+<div class="table"><div class="thead"><span>TIER</span><span>PLAYER</span><span>METHOD</span><span>POINTS</span></div><div id="rows"></div><div class="empty" id="empty">No players found.</div></div>
+<p class="note">Бұл — демонстрациялық рейтинг. Ойыншылар мен ұпайлар мысал ретінде берілген, нақты рейтинг емес.</p>
+</div></section>
+<section class="section" id="tiers" style="padding-top:0"><div class="wrap"><div class="eyebrow">Classification</div><h2>Tier system</h2><div class="tiers"><div class="tier-card"><strong>T1</strong><span>ELITE</span></div><div class="tier-card"><strong>T2</strong><span>ADVANCED</span></div><div class="tier-card"><strong>T3</strong><span>SKILLED</span></div><div class="tier-card"><strong>T4</strong><span>REGULAR</span></div><div class="tier-card"><strong>T5</strong><span>STARTER</span></div></div>
+<div class="submit" id="submit"><div><h3>JOIN THE ARCHIVE</h3><p>Рейтингке ойыншы қосуды ұсын. Әкімшімен байланысу сілтемесін өз email-ыңа ауыстыр.</p></div><a class="btn" href="mailto:admin@example.com?subject=TenshiWorld%20Player%20Submission">Submit player</a></div></div></section></main>
+<footer><div class="wrap foot"><span>© 2026 TENSHIWORLD — MINECRAFT PVP RANKINGS</span><span>Unofficial community project · Not affiliated with Mojang or Microsoft</span></div></footer>
+<script>
+const players=[{name:"ShadowPvP",tier:"T1",mode:"Sword",points:980},{name:"VoidBlade",tier:"T1",mode:"Crystal",points:950},{name:"EnderFox",tier:"T2",mode:"UHC",points:890},{name:"CraftLegend",tier:"T2",mode:"Sword",points:870},{name:"NightMiner",tier:"T2",mode:"Axe",points:845},{name:"PixelKnight",tier:"T3",mode:"Crystal",points:790},{name:"DragonPvP",tier:"T3",mode:"UHC",points:760},{name:"BlockStorm",tier:"T4",mode:"Sword",points:690},{name:"FrostByte",tier:"T4",mode:"Axe",points:650},{name:"MineRider",tier:"T5",mode:"UHC",points:540}];
+let current="Overall";function render(){const q=document.getElementById('search').value.toLowerCase();let list=players.filter(p=>(current==="Overall"||p.mode===current)&&p.name.toLowerCase().includes(q)).sort((a,b)=>b.points-a.points);document.getElementById('count').textContent=list.length+" PLAYERS";document.getElementById('empty').style.display=list.length?"none":"block";document.getElementById('rows').innerHTML=list.map((p,i)=>`<div class="tier-row"><div class="tier ${p.tier.toLowerCase()}">${p.tier}</div><div class="player"><div class="avatar">${p.name[0]}</div><div><div class="pname">${p.name}</div><div class="sub">RANK #${i+1} · COMMUNITY PLAYER</div></div></div><div class="mode">${p.mode}</div><div class="points">${p.points}</div></div>`).join('')}
+document.getElementById('tabs').addEventListener('click',e=>{if(!e.target.matches('button'))return;current=e.target.dataset.mode;document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b===e.target));render()});document.getElementById('search').addEventListener('input',render);render();
+</script></body></html>
